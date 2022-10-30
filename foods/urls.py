@@ -1,0 +1,27 @@
+from django.urls import path
+from .views import *
+urlpatterns=[
+    path('category',CategoryView.as_view(),name='category-list-add'),
+    path('category-user',CategoryUserView.as_view(),name='category-user'),
+    path('category/<int:pk>',CategoryView.as_view(),name='category-singel'),
+    path('food',FoodView.as_view(),name='food-add'),
+    path('food/<int:pk>',FoodView.as_view(),name='food-singel'),
+    path('food-user/<int:pk>',FoodUserView.as_view(),name='food-user'),
+    path('category-food/<int:category>/<int:page>',CategoryFoodView.as_view(),name='category-food'),
+    path('add-offer',addOffer,name='add-offer'),
+    path('add-addition',AdditionView.as_view(),name='addition-add'),
+    path('add-addition-food',addAdditionsToFood,name='addition-add-food'),
+    path('delete-addition/<int:pk>',AdditionView.as_view(),name='addition-del'),
+    path('category-visiblity/<int:pk>',changeCategoryVisible,name='category-visiblity'),
+    path('food-visiblity/<int:pk>',changeFoodVisible,name='food-visiblity'),
+    path('search-food/<int:page>',FoodsMenuView.as_view(),name='search-food'),
+    path('search-food/offers/<int:page>',FoodsMenuView.as_view(),name='search-food'),
+    path('search-food/points/<int:page>',FoodsMenuView.as_view(),name='search-food'),
+    path('advertise',AdvertiseView.as_view(),name='advertise-get-create'),
+    path('advertise-admin',AdvertiseAdminView.as_view(),name='advertise-get-create'),
+    path('advertise-admin/<int:pk>',AdvertiseAdminView.as_view(),name='advertise-delete'),
+    path('tops-of-week',TopsOfWeekView.as_view(),name='tops-of-week'),
+    path('user-food-points',UsersPointsFoodView.as_view(),name='user-food-points'),
+    path('user-favorie-food/<int:page>',UserFavoriteFoodsView.as_view(),name='user-favorie-food'),
+    path('all',AllFoodView.as_view(),name='all-foods'),
+]
